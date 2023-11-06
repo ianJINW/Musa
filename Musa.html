@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musa Music</title>
+    <link rel="stylesheet" href="Musa.css" />
+    <link
+      rel="shortcut icon"
+      href="/Code Class/HTML CSS/img/+254 757 964099 20201006_164052.jpg"
+      type="image/jpg"
+    />
+    <script
+      src="https://kit.fontawesome.com/7e991d640e.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1><em>Musa Music</em></h1>
+    </div>
+    <main class="container">
+      <div class="music-player">
+        <nav>
+          <div class="circle"><i class="fa-duotone fa-play"></i></div>
+          <div class="circle"><i class="fa-duotone fa-play"></i></div>
+        </nav>
+        <figure>
+          <img src="/Code Class/caret/Stylish_dp-1352.jpg" alt="Musa" />
+          <figcaption>
+            <h3>Lifetime</h3>
+            <br />
+            <p class="name"></p>
+          </figcaption>
+        </figure>
+        <audio id="song">
+          <source
+            class="src"
+            src="/Music/Zara Larsson - Don't Worry Bout Me (Lyric Video) (1).mp3"
+          />
+        </audio>
+        <label for="seeker" title="seek">
+          <input type="range" id="progress" value="0" />
+        </label>
+        <div class="controls">
+          <section>
+            <img src="/Code Class/caret/caret-left-solid.svg" alt="Back" />
+          </section>
+          <section>
+            <img
+              id="cIcon"
+              onclick="PlayPause()"
+              src="/Code Class/caret/circle-play-regular.svg"
+              alt="Play/Pause"
+            />
+          </section>
+          <section>
+            <img src="/Code Class/caret/caret-right-solid.svg" alt="Next" />
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="Musa.js"></script>
+  </body>
+</html>
