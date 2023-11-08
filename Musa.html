@@ -5,15 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Musa Music</title>
     <link rel="stylesheet" href="Musa.css" />
-    <link
-      rel="shortcut icon"
-      href="/Code Class/HTML CSS/img/+254 757 964099 20201006_164052.jpg"
-      type="image/jpg"
-    />
-    <script
-      src="https://kit.fontawesome.com/7e991d640e.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="shortcut icon" href="assets/wp1989836.jpg" type="image/jpg" />
   </head>
 
   <body>
@@ -22,12 +14,8 @@
     </div>
     <main class="container">
       <div class="music-player">
-        <nav>
-          <div class="circle"><i class="fa-duotone fa-play"></i></div>
-          <div class="circle"><i class="fa-duotone fa-play"></i></div>
-        </nav>
         <figure>
-          <img src="/Code Class/caret/Stylish_dp-1352.jpg" alt="Musa" />
+          <img src="assets/Stylish_dp-1352.jpg" alt="Musa" />
           <figcaption>
             <h3>Lifetime</h3>
             <br />
@@ -37,30 +25,55 @@
         <audio id="song">
           <source
             class="src"
-            src="/Music/Zara Larsson - Don't Worry Bout Me (Lyric Video) (1).mp3"
+            src="assets/_Lifetime__Lyric_Video___Season_2___STAR(128k).m4a"
           />
         </audio>
         <label for="seeker" title="seek">
           <input type="range" id="progress" value="0" />
         </label>
         <div class="controls">
-          <section>
-            <img src="/Code Class/caret/caret-left-solid.svg" alt="Back" />
-          </section>
-          <section>
-            <img
-              id="cIcon"
-              onclick="PlayPause()"
-              src="/Code Class/caret/circle-play-regular.svg"
-              alt="Play/Pause"
-            />
-          </section>
-          <section>
-            <img src="/Code Class/caret/caret-right-solid.svg" alt="Next" />
-          </section>
+          <section><i class="fas fa-play" onclick="PlayPause()"></i></section>
         </div>
       </div>
     </main>
+    <script
+      src="https://kit.fontawesome.com/7e991d640e.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="Musa.js"></script>
+    <script>
+      let progress = document.querySelector('#progress')
+      let song = document.querySelector('#song')
+      let cIcon = document.querySelector('i')
+      let src = document.querySelector('.src').getAttribute('src')
+
+      function PlayPause() {
+        if (cIcon.getAttribute('class') === 'fas fa-pause') {
+          song.pause()
+          cIcon.setAttribute('class', 'fas fa-play')
+        } else {
+          song.play()
+          cIcon.setAttribute('class', 'fas fa-pause')
+        }
+      }
+      let ame = document.querySelector('.name')
+      ame.innerText = src
+
+      progress.max = song.duration
+      progress.value = song.currentTime
+
+      if (song.play) {
+        setInterval(() => {
+          progress.value = song.currentTime
+        }, 5)
+      }
+
+      progress.oninput = function () {
+        song.currentTime = progress.value
+        if (song.paused) {
+          PlayPause()
+        }
+      }
+    </script>
   </body>
 </html>
